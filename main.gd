@@ -4,24 +4,12 @@ var current_line = null
 var current_line_shadow = null
 var p1 = Vector2()
 var p2 = p1
-
 var last_mouse_pos = Vector2()
 
 func _ready():
 	pass
 	#yield(get_tree().create_timer(1), "timeout")
-	
-	#spawn_emitter("bell", Vector2(0.3, 0.2))
-	#spawn_emitter("kick", Vector2(0.3, 0.6))
-	#spawn_emitter("snare", Vector2(0.7, 0.2))
-	#spawn_emitter("laser", Vector2(0.7, 0.6))
 
-	
-func spawn_emitter(name, pos):
-	var emitter = preload("res://emitter.tscn").instance()
-	emitter.sound = name
-	emitter.position = pos * OS.window_size
-	add_child(emitter)
 
 func _process(_delta):
 	

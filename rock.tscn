@@ -8,9 +8,9 @@
 ]]
 script = ExtResource( 2 )
 
-[node name="rock" type="Sprite" parent="."]
+[node name="sprite" type="Sprite" parent="."]
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 4.5, -63.0001, 48.5, -46.5001, 69, -3.50006, 48.5, 27.4999, 1, 59.4999, -57.5, 58.9999, -75.5, 21.4999, -59, -26.5001, -36, -49.5001 )
+[node name="shape" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 16.5, -71.5, 55, -49.75, 76.5, -4.5, 52.75, 31, 27.75, 54, 1.75, 64.25, -34.25, 67.25, -60.5, 63.25, -82.25, 21.5, -76.25, -8, -65.5, -30.75, -35.5, -59 )
