@@ -1,0 +1,76 @@
+extends Node
+
+var current_line = null
+var current_line_shadow = null
+var p1 = Vector2()
+var p2 = p1
+
+var last_mouse_pos = Vector2()
+
+func _ready():
+	pass
+	#yield(get_tree().create_timer(1), "timeout")
+	
+	#spawn_emitter("bell", Vector2(0.3, 0.2))
+	#spawn_emitter("kick", Vector2(0.3, 0.6))
+	#spawn_emitter("snare", Vector2(0.7, 0.2))
+	#spawn_emitter("laser", Vector2(0.7, 0.6))
+
+	
+func spawn_emitter(name, pos):
+	var emitter = preload("res://emitter.tscn").instance()
+	emitter.sound = name
+	emitter.position = pos * OS.window_size
+	add_child(emitter)
+
+func _process(_delta):
+	
+	last_mouse_pos = $cam.get_global_mouse_position()
+	
+	p2 = last_mouse_pos
+	
+	if current_line != null:
+		current_line_shadow.set_ends_shadow(p1, p2)
+		current_line.set_ends(p1, p2)
+		
+	$line_count_txt.text =  String(Global.line_count)
+		
+func _input(event):
+	
+	if (event.is_action_released("ui_cancel")):
+		get_tree().quit()
+
+			
+	if event is InputEventMouseButton:
+
+		if event.pressed and event.button_index == BUTTON_LEFT:
+
+			p1 = last_mouse_pos
+			p2 = p1
+			
+			current_line = preload("res://line.tscn").instance()
+			current_line.set_ends(p1, p2)
+			#add_child(current_line)
+			
+			#showing the shadow line without bounce
+			current_line_shadow = preload("res://line.tscn").instance()
+			current_line_shadow.set_ends_shadow(p1, p2)
+			add_child(current_line_shadow)
+
+		#allen 
+		elif event.button_index != BUTTON_RIGHT:
+			#add line when released
+			add_child(current_line)
+			
+			var line_length = p1.distance_to(p2)
+
+			if  line_length >= 1:
+				#print(String(line_length))
+				Global.line_count += 1
+
+			current_line = null
+
+		else:
+			current_line = null
+
+
