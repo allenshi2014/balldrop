@@ -2,32 +2,30 @@ extends StaticBody2D
 
 var a = Vector2()
 var b = Vector2()
-var collider_name = "line"
-
 var b_limit = Vector2()
+
+var collider_name = "line"
 
 func set_ends_shadow(p1, p2):
 
 	a = p1
 	b = p2
-	#if a.distance_to(b) >=100:
-		
+
 	# update the capsule
 	$shape.shape.height = a.distance_to(b)
 	$shape.position = (a + b) / 2
 	$shape.rotation = a.angle_to_point(b) + PI / 2
 	# update the sprite
 	# (using a sprite so we get anti aliasing)
-	$spr.position = (a + (a + b) / 2) / 2
+	$spr.position = (a + b) / 2
 	$spr.rotation = $shape.rotation + PI / 2
-	$spr.scale = Vector2(a.distance_to(b)/2, 1)
+	$spr.scale = Vector2(a.distance_to(b), 1)
 	#grey color for shadow line
 	$spr.modulate = Color(0.75, 0.75, 0.75, 1)
 	#set no bounce 
 	a = Vector2(0, 0)
 	b = a
 
-	
 
 func set_ends(p1, p2):
 

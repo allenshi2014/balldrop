@@ -1,5 +1,6 @@
 extends Node
 
+var line_length = 150
 var current_line = null
 var current_line_shadow = null
 var p1 = Vector2()
@@ -14,10 +15,9 @@ func _ready():
 func _process(_delta):
 	
 	last_mouse_pos = $cam.get_global_mouse_position()
-	
 	p2 = last_mouse_pos
 	
-	if current_line != null:
+	if current_line != null and p1.distance_to(p2) <= line_length and p1.distance_to(p2) >= 10:
 		current_line_shadow.set_ends_shadow(p1, p2)
 		current_line.set_ends(p1, p2)
 		
@@ -49,10 +49,8 @@ func _input(event):
 		elif event.button_index != BUTTON_RIGHT:
 			#add line when released
 			add_child(current_line)
-			
-			var line_length = p1.distance_to(p2)
 
-			if  line_length >= 1:
+			if  p1.distance_to(p2) >= 10:
 				#print(String(line_length))
 				Global.line_count += 1
 
