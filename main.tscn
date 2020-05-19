@@ -176,11 +176,12 @@ __meta__ = {
 }
 
 [node name="line_count_txt" type="Label" parent="."]
-margin_left = 1139.0
-margin_top = 25.0
+margin_left = 1108.0
+margin_top = 7.0
 margin_right = 1216.0
 margin_bottom = 43.0
 text = "0"
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

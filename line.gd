@@ -6,11 +6,34 @@ var b_limit = Vector2()
 
 var collider_name = "line"
 
+var timer = Timer.new()
+var line_lifecyle = 5
+var line_shadow = null
+
+func _ready():
+
+	timer.set_wait_time(line_lifecyle)
+	timer.set_one_shot(true)
+	add_child(timer)
+	timer.start()
+	
+	
+func _process(delta):
+	
+	if timer.is_stopped() and line_shadow == false:
+		queue_free()
+		Global.line_count -= 1
+		get_parent().get_node("line_count_txt").text = String(Global.line_count)
+	elif timer.is_stopped():
+		queue_free()
+
+	
 func set_ends_shadow(p1, p2):
 
+	line_shadow = true
 	a = p1
 	b = p2
-
+	
 	# update the capsule
 	$shape.shape.height = a.distance_to(b)
 	$shape.position = (a + b) / 2
@@ -28,7 +51,8 @@ func set_ends_shadow(p1, p2):
 
 
 func set_ends(p1, p2):
-
+	
+	line_shadow = false
 	a = p1
 	b = p2
 	# update the capsule
@@ -40,8 +64,6 @@ func set_ends(p1, p2):
 	$spr.position = (a + b) / 2
 	$spr.rotation = $shape.rotation + PI / 2
 	$spr.scale = Vector2(a.distance_to(b), 1)
-	#grey color for shadow line
-	$spr.modulate = Color(0.75, 0.75, 0.75, 1)
 
 
 func _on_line_input_event(_viewport, event, _shape_idx):
@@ -50,7 +72,6 @@ func _on_line_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == BUTTON_RIGHT:
 			queue_free()
-			#allen
 			Global.line_count -= 0.5
 			get_parent().get_node("line_count_txt").text = String(Global.line_count)
 
