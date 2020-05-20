@@ -13,7 +13,7 @@ func _ready():
 	#yield(get_tree().create_timer(1), "timeout")
 
 
-func _process(delta):
+func _process(_delta):
 	
 	last_mouse_pos = $cam.get_global_mouse_position()
 	p2 = last_mouse_pos

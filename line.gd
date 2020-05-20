@@ -9,28 +9,35 @@ var collider_name = "line"
 var timer = Timer.new()
 var line_lifecyle = 5
 var line_shadow = null
+var line_ready = true
 
 func _ready():
 
+	timer.connect("timeout", self, "_on_Timer_timeout")
 	timer.set_wait_time(line_lifecyle)
-	timer.set_one_shot(true)
 	add_child(timer)
-	timer.start()
+	#timer.start()
+
+func _process(_delta):
+	if line_ready == true:
+		timer.start()
+		line_ready = false
 	
 	
-func _process(delta):
+func _on_Timer_timeout():
 	
-	if timer.is_stopped() and line_shadow == false:
+	if line_shadow == false:
 		queue_free()
 		Global.line_count -= 1
 		get_parent().get_node("line_count_txt").text = String(Global.line_count)
-	elif timer.is_stopped():
+	else:
 		queue_free()
 
-	
+
 func set_ends_shadow(p1, p2):
 
 	line_shadow = true
+	line_ready = true
 	a = p1
 	b = p2
 	
@@ -53,6 +60,7 @@ func set_ends_shadow(p1, p2):
 func set_ends(p1, p2):
 	
 	line_shadow = false
+	line_ready = true
 	a = p1
 	b = p2
 	# update the capsule
