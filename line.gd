@@ -7,7 +7,7 @@ var b_limit = Vector2()
 var collider_name = "line"
 
 var timer = Timer.new()
-var line_lifecyle = 5
+var line_lifecyle = 30
 var line_shadow = null
 var line_ready = true
 

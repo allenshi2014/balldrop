@@ -1,6 +1,6 @@
 extends Node
 
-var line_length = 150
+var line_length = 200
 var current_line = null
 var current_line_shadow = null
 var p1 = Vector2()
