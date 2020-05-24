@@ -20,9 +20,24 @@ func _process(_delta):
 	#$earth.scale += Vector2(0.0001, 0.0001)
 
 	
-	$earth_menu.rotation_degrees += 0.05
+	$earth.rotation_degrees += 0.05
+	$earth2.rotation_degrees += 0.05
 
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://main.tscn")
 	#push_warning(String(new_scene))
+
+
+func _on_TouchScreenButton_released():
+	$earth2.scale = 1.5
+	push_warning("button released.")
+	push_error("button released!!!")
+
+
+func _on_TouchScreenButton_pressed():
+	$earth2.scale = 1.5
+	$earth.rotation_degrees += 1
+	$earth2.rotation_degrees += 1
+	push_warning("button released.")
+	push_error("button released!!!")

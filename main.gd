@@ -1,6 +1,6 @@
 extends Node
 
-var line_length = 200
+var line_length = 300
 var current_line = null
 var current_line_shadow = null
 var p1 = Vector2()
@@ -10,6 +10,7 @@ var last_mouse_pos = Vector2()
 
 func _ready():
 	pass
+	#OS.set_window_fullscreen(true)
 	#yield(get_tree().create_timer(1), "timeout")
 
 
@@ -19,6 +20,7 @@ func _process(_delta):
 	p2 = last_mouse_pos
 	
 	if current_line != null and p1.distance_to(p2) <= line_length and p1.distance_to(p2) >= 10:
+		
 		current_line_shadow.set_ends_shadow(p1, p2)
 		current_line.set_ends(p1, p2)
 		
@@ -35,7 +37,7 @@ func _input(event):
 
 		if event.pressed and event.button_index == BUTTON_LEFT:
 
-			p1 = last_mouse_pos
+			p1 = $cam.get_global_mouse_position()
 			p2 = p1
 			
 			current_line = preload("res://line.tscn").instance()
@@ -47,9 +49,9 @@ func _input(event):
 			current_line_shadow.set_ends_shadow(p1, p2)
 			add_child(current_line_shadow)
 			
-		#allen 
-		elif event.button_index != BUTTON_RIGHT:
-			#add line when released
+		#add line when button_left released
+		elif event.button_index == BUTTON_LEFT:
+			
 			add_child(current_line)
 
 			if  p1.distance_to(p2) >= 10:
@@ -60,7 +62,6 @@ func _input(event):
 
 		else:
 			current_line = null
-
 
 
 
