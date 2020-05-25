@@ -12,9 +12,9 @@ var line_lifecycle = 30
 var line_shadow = null
 var line_ready = true
 
-#remove line when long hold
+#remove line when long hold 0.5sec
 var timer2 = Timer.new()
-var hold_limit = 1
+var hold_limit = 0.5
 var line_set = false
 
 

@@ -40,12 +40,12 @@ func _input(event):
 			p1 = $cam.get_global_mouse_position()
 			p2 = p1
 			
-			current_line = preload("res://line.tscn").instance()
+			current_line = preload("res://level/line.tscn").instance()
 			current_line.set_ends(p1, p2)
 			#add_child(current_line)
 			
 			#showing the shadow line without bounce
-			current_line_shadow = preload("res://line.tscn").instance()
+			current_line_shadow = preload("res://level/line.tscn").instance()
 			current_line_shadow.set_ends_shadow(p1, p2)
 			add_child(current_line_shadow)
 			
@@ -66,4 +66,4 @@ func _input(event):
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://Menu.tscn")
+	get_tree().change_scene("res://menu.tscn")

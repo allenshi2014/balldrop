@@ -15,9 +15,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="balldrop"
-run/main_scene="res://main.tscn"
-config/icon="res://icon.png"
+config/name="GoBall"
+run/main_scene="res://menu.tscn"
+config/icon="res://image/icon.png"
 
 [autoload]
 

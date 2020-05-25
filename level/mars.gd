@@ -45,7 +45,7 @@ func _physics_process(delta):
 				
 			elif c.collider_name == "rock":
 				#add break effect
-				var shockwave = preload("res://shockwave.tscn").instance()
+				var shockwave = preload("res://level/shockwave.tscn").instance()
 				shockwave.position = position
 				shockwave.scale = Vector2(2, 2)
 				shockwave.modulate = Color(0.5, 1, 0, 1)
@@ -65,7 +65,7 @@ func _physics_process(delta):
 				vel = (-vel.reflect(norm)).linear_interpolate(vel.slide(norm), 1-restitution)
 				position = coll + norm * 0.1
 			
-				var shockwave = preload("res://shockwave.tscn").instance()
+				var shockwave = preload("res://level/shockwave.tscn").instance()
 				shockwave.position = position
 				#shockwave.modulate = $spr.modulate
 				get_parent().add_child(shockwave)
