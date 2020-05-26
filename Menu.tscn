@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://image/bg/bg.jpg" type="Texture" id=1]
 [ext_resource path="res://font/GT.ttf" type="DynamicFontData" id=2]
@@ -9,11 +9,18 @@
 size = 30
 font_data = ExtResource( 2 )
 
+[sub_resource type="ParticlesMaterial" id=2]
+flag_disable_z = true
+gravity = Vector3( 0, 100, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 50.0
+
 [node name="Menu" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="bg" type="Sprite" parent="."]
-position = Vector2( 640, 364.6 )
+position = Vector2( 640, 365.995 )
 rotation = 3.14159
 texture = ExtResource( 1 )
 
@@ -24,9 +31,9 @@ texture = ExtResource( 5 )
 
 [node name="btn_new" type="Button" parent="."]
 margin_left = 862.254
-margin_top = 312.58
+margin_top = 287.58
 margin_right = 1083.25
-margin_bottom = 355.58
+margin_bottom = 330.58
 custom_fonts/font = SubResource( 1 )
 text = "New Game"
 __meta__ = {
@@ -46,14 +53,26 @@ __meta__ = {
 
 [node name="btn_setting" type="Button" parent="."]
 margin_left = 862.254
-margin_top = 371.236
+margin_top = 361.236
 margin_right = 1083.25
-margin_bottom = 414.236
+margin_bottom = 404.236
 custom_fonts/font = SubResource( 1 )
 text = "Setting"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="comet" type="Particles2D" parent="."]
+position = Vector2( 900, 70 )
+rotation = 0.785398
+scale = Vector2( 5, 5 )
+emitting = false
+amount = 10
+lifetime = 2.0
+speed_scale = 2.0
+explosiveness = 1.0
+visibility_rect = Rect2( -100, -10, 200, 200 )
+process_material = SubResource( 2 )
 [connection signal="pressed" from="btn_new" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="btn_option" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="btn_setting" to="." method="_on_Button_pressed"]
