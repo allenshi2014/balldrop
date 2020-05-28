@@ -5,7 +5,7 @@
 [ext_resource path="res://font/GT.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://level/stage1/stage1_1.gd" type="Script" id=4]
 [ext_resource path="res://level/stage1/rock.tscn" type="PackedScene" id=5]
-[ext_resource path="res://level/mars.tscn" type="PackedScene" id=6]
+[ext_resource path="res://level/ball.tscn" type="PackedScene" id=6]
 [ext_resource path="res://level/gate.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Environment" id=1]

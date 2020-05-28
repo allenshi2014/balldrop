@@ -7,15 +7,15 @@ var initalpos = Vector2() #get the inital postion to reset mars back after lost
 func _ready():
 	prevpos = position
 	initalpos = position
+	
 
 func _physics_process(delta):
 	#yield(get_tree().create_timer(2), "timeout")
-	
+	if position == initalpos:
+		reset_ball()
+		
 	if position.y > 1000:
-		#queue_free()
-		#reset the position
-		position = initalpos
-		vel = Vector2()
+		reset_ball()
 		
 	vel += Vector2(0, 20 * 1) * delta
 	prevpos = position
@@ -53,8 +53,7 @@ func _physics_process(delta):
 				#add sound effect
 				AudioPlayer.play_at("kick", position, 1)
 				
-				position = initalpos
-				vel = Vector2()
+				reset_ball()
 				break
 
 			elif c.collider_name == "line":
@@ -73,3 +72,13 @@ func _physics_process(delta):
 			
 			else:
 				pass
+				
+func reset_ball():
+	#add ball entry effect
+	var entry = preload("res://level/ball_entry.tscn").instance()
+	entry.position = initalpos
+	entry.z_index = -1
+	get_parent().add_child(entry)
+	
+	position = initalpos
+	vel = Vector2()
