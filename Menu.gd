@@ -8,7 +8,7 @@ func _process(_delta):
 	#$earth.scale += Vector2(0.0001, 0.0001)
 	$earth.rotation_degrees += 0.05
 	var earth_degree = $earth.get_rotation_degrees()
-	if  earth_degree > 4 and earth_degree < 5:
+	if  earth_degree > 93 and earth_degree < 94:
 		$comet.set_emitting(true)
 	else:
 		$comet.set_emitting(false)
