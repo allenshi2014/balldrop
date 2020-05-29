@@ -137,8 +137,8 @@ dragger_visibility = 2
 
 [node name="logo" type="Label" parent="center/vsplit"]
 modulate = Color( 1, 1, 1, 0 )
-margin_right = 427.0
-margin_bottom = 177.0
+margin_right = 31.0
+margin_bottom = 2.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "balldrop."
@@ -147,9 +147,9 @@ valign = 1
 
 [node name="controls" type="Label" parent="center/vsplit"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 177.0
-margin_right = 427.0
-margin_bottom = 384.0
+margin_top = 2.0
+margin_right = 31.0
+margin_bottom = 14.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "
