@@ -5,6 +5,12 @@ var prevpos = Vector2()
 var initalpos = Vector2() #get the inital postion to reset mars back after lost
 
 func _ready():
+	#set image for ball
+	var ball_texture1 = preload("res://image/ball/ball1.png")
+	var ball_texture2 = preload("res://image/ball/ball2.png")
+
+	$sprite.set_texture(ball_texture2)
+	
 	prevpos = position
 	initalpos = position
 	
