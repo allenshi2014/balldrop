@@ -2,10 +2,6 @@ extends Node2D
 
 func _process(_delta):
 	
-	#$bg.scale += Vector2(0.0001, 0.0001)
-	#$bg.position += Vector2(-0.01, 0)
-	#$earth.position += Vector2(0.05, 0)
-	#$earth.scale += Vector2(0.0001, 0.0001)
 	$earth.rotation_degrees += 0.05
 	var earth_degree = $earth.get_rotation_degrees()
 	if  earth_degree > 93 and earth_degree < 94:
@@ -14,6 +10,11 @@ func _process(_delta):
 		$comet.set_emitting(false)
 		
 
-func _on_Button_pressed():
-# warning-ignore:return_value_discarded
+func _on_btn_new_pressed():
 	get_tree().change_scene("res://level/stage1/stage1_1.tscn")
+
+func _on_btn_setting_pressed():
+	get_tree().change_scene("res://selection.tscn")
+
+func _on_btn_option_pressed():
+	pass

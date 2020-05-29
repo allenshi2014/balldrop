@@ -111,6 +111,6 @@ __meta__ = {
 [node name="btn_option_mask" type="LightOccluder2D" parent="control/btn_option"]
 position = Vector2( 109.912, 21.0035 )
 occluder = SubResource( 3 )
-[connection signal="pressed" from="control/btn_new" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="control/btn_setting" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="control/btn_option" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="control/btn_new" to="." method="_on_btn_new_pressed"]
+[connection signal="pressed" from="control/btn_setting" to="." method="_on_btn_setting_pressed"]
+[connection signal="pressed" from="control/btn_option" to="." method="_on_btn_option_pressed"]

@@ -195,7 +195,7 @@ __meta__ = {
 [node name="mars" parent="." instance=ExtResource( 6 )]
 position = Vector2( 116, 128 )
 
-[node name="Button" type="Button" parent="."]
+[node name="btn_back" type="Button" parent="."]
 margin_left = 1179.0
 margin_top = 25.0
 margin_right = 1256.0
@@ -205,4 +205,4 @@ text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="btn_back" to="." method="_on_btn_back_pressed"]

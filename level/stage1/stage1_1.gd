@@ -64,6 +64,5 @@ func _input(event):
 			current_line = null
 
 
-
-func _on_Button_pressed():
+func _on_btn_back_pressed():
 	get_tree().change_scene("res://menu.tscn")

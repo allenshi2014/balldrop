@@ -8,44 +8,39 @@ var swipe_start = null
 
 func _ready():
 	swipe_start = null
-
+	
+	
 func _process(_delta):
 	
-	
-	var child1 = $sprites.get_child(0)
+	var msg = ""
+	var msg2 = ""
 	for child in $sprites.get_children():
-		var space = child.position.x - 600
-		
-		
+		#get space between center(x=650) and each item
+		var space = abs(child.global_position.x - 650)
+		if space <= 150 and space >= 50:
+			var increment = Vector2(0.002, 0.002)
+			child.scale = Vector2(0.3, 0.3) + (150 - space) * increment
+			
+		msg += String(child.global_position.x) + " / "
+		msg2 += String(space) + " / "
+	$label.text = msg
+	$label2.text = msg2
 	
 	if swipe_start != null:
 		var swipe_now = $cam.get_global_mouse_position()
 		var distance = swipe_now.x - swipe_start.x
-		$sprites.position.x += distance / 30
+		$sprites.position.x += distance / 50
 		
-		if child1.scale <= Vector2(5, 5):
-			child1.scale += Vector2(0.01, 0.01)
-		
-	elif swipe_start == null and child1.scale >= Vector2(0.3, 0.3):
-		child1.scale -= Vector2(0.01, 0.01)
-		
-	else:
-		pass
-
-
-#func _process(event):
-#	if event.is_action_pressed("click"):
-#		swipe_start = $cam.get_global_mouse_position()
-#		var distance = swipe_start.x - $sprites.position.x
-#		$sprites.position.x += distance
 	
 	
+func _input(event):
 	
-func _unhandled_input(event):
-	if event.is_action_pressed("click"):
-		swipe_start = $cam.get_global_mouse_position()
-	if event.is_action_released("click"):
-		swipe_start = null
+	if event is InputEventMouseButton:
+		
+		if event.pressed and event.button_index == BUTTON_LEFT:
+			swipe_start = $cam.get_global_mouse_position()
+		elif event.button_index == BUTTON_LEFT:
+			swipe_start = null
 		
 		#_calculate_swipe($cam.get_global_mouse_position())
 		
@@ -63,3 +58,7 @@ func _calculate_swipe(swipe_end):
 		else:
 			emit_signal("swipe", "left")
 			print("left")
+
+
+func _on_btn_back_pressed():
+	get_tree().change_scene("res://menu.tscn")
