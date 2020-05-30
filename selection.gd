@@ -40,9 +40,9 @@ func _input(event):
 		if event.pressed and event.button_index == BUTTON_LEFT:
 			swipe_start = $cam.get_global_mouse_position()
 		elif event.button_index == BUTTON_LEFT:
+			_calculate_swipe($cam.get_global_mouse_position())
 			swipe_start = null
-		
-		#_calculate_swipe($cam.get_global_mouse_position())
+			
 		
 		
 		
@@ -50,13 +50,17 @@ func _calculate_swipe(swipe_end):
 	if swipe_start == null: 
 		return
 	var swipe = swipe_end - swipe_start
-	print(swipe)
+	
 	if abs(swipe.x) > minimum_drag:
 		if swipe.x > 0:
 			emit_signal("swipe", "right")
+			
+			$sprites.position.x += 10
 			print("right")
 		else:
 			emit_signal("swipe", "left")
+			
+			$sprites.position.x -= 10
 			print("left")
 
 
