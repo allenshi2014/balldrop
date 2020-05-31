@@ -9,6 +9,7 @@
 [ext_resource path="res://font/GT.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="DynamicFont" id=1]
+size = 25
 font_data = ExtResource( 7 )
 
 [node name="selection" type="Node2D"]
@@ -55,22 +56,34 @@ __meta__ = {
 }
 
 [node name="label2" type="Label" parent="."]
-margin_left = 459.49
-margin_top = 134.453
-margin_right = 499.49
-margin_bottom = 148.453
+margin_left = 459.0
+margin_top = 134.0
+margin_right = 1238.0
+margin_bottom = 221.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="btn_back" type="Button" parent="."]
-margin_left = 1169.73
-margin_top = 30.2517
-margin_right = 1238.73
-margin_bottom = 56.2517
+margin_left = 1123.34
+margin_top = 32.2685
+margin_right = 1225.34
+margin_bottom = 69.2685
 custom_fonts/font = SubResource( 1 )
 text = "BACK"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="btn_play" type="Button" parent="."]
+margin_left = 607.319
+margin_top = 588.648
+margin_right = 707.319
+margin_bottom = 625.648
+custom_fonts/font = SubResource( 1 )
+text = "PLAY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="btn_back" to="." method="_on_btn_back_pressed"]
+[connection signal="pressed" from="btn_play" to="." method="_on_btn_back_pressed"]

@@ -1,22 +1,20 @@
 extends Node
 
 signal swipe
-#var swipe_start = null
 var minimum_drag = 100
-
+#sliding
 var swipe_start = null
 var swipe_right_released = false
 var swipe_left_released = false
 var slide_distance = 0
+var slide_increment = 10
+
+func _ready():
+	$btn_play.visible = false
 	
-#func _ready():
-#	swipe_start = null
 	
-	
-func _process(_delta):
-	
-	var msg = ""
-	var msg2 = ""
+func _process(delta):
+
 	#increase/decrease items while moving
 	for child in $sprites.get_children():
 		#get space between center(x=650) and each item
@@ -24,12 +22,9 @@ func _process(_delta):
 		if space <= 150 and space >= 50:
 			var increment = Vector2(0.002, 0.002)
 			child.scale = Vector2(0.3, 0.3) + (150 - space) * increment
-		
-		#output on screen	
-		msg += String(child.global_position.x) + " / "
-		msg2 += String(space) + " / "
-	$label.text = msg
-	$label2.text = msg2
+			$btn_play.visible = true
+		else:
+			$btn_play.visible = false
 	
 	#moving items while mouse moves
 	if swipe_start != null:
@@ -37,18 +32,20 @@ func _process(_delta):
 		var distance = swipe_now.x - swipe_start.x
 		$sprites.position.x += distance / 50
 	
-	#sliding after swipe
-	if swipe_left_released and slide_distance <= 500 and swipe_start == null:
-		$sprites.position.x -= 10
-		slide_distance += 10
-	elif swipe_right_released and slide_distance <= 500 and swipe_start == null:
-		$sprites.position.x += 10
-		slide_distance += 10
+	#sliding after swipe with gradual increment
+	if swipe_left_released and slide_distance <= 200 and slide_increment > 0 and swipe_start == null:
+		$sprites.position.x -= slide_increment
+		slide_distance += slide_increment
+		slide_increment -= 0.1
+	elif swipe_right_released and slide_distance <= 200 and slide_increment > 0 and swipe_start == null:
+		$sprites.position.x += slide_increment
+		slide_distance += slide_increment
+		slide_increment -= 0.1
 	else:
 		slide_distance = 0
+		slide_increment = 10
 		swipe_right_released = false
 		swipe_left_released = false
-		
 	
 	
 func _input(event):
