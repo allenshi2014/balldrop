@@ -47,6 +47,7 @@ func _physics_process(delta):
 		if coll != null:
 			
 			if c.collider_name == "gate":
+				get_parent().find_node("gate").scale = Vector2(0.5, 0.5)
 				queue_free()
 				
 			elif c.collider_name == "rock":
