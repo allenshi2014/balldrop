@@ -1,12 +1,13 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://fonts/WireOne.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://image/bg/bg.jpg" type="Texture" id=2]
+[ext_resource path="res://image/bg/bg_menu.jpg" type="Texture" id=2]
 [ext_resource path="res://font/GT.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://level/stage1/stage1_1.gd" type="Script" id=4]
 [ext_resource path="res://level/stage1/rock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://level/ball.tscn" type="PackedScene" id=6]
 [ext_resource path="res://level/gate.tscn" type="PackedScene" id=7]
+
 
 [sub_resource type="Environment" id=1]
 background_mode = 4

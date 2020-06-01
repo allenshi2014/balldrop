@@ -16,15 +16,18 @@ func _ready():
 func _process(delta):
 
 	#increase/decrease items while moving
+	$btn_play.visible = false
 	for child in $sprites.get_children():
 		#get space between center(x=650) and each item
 		var space = abs(child.global_position.x - 650)
+		#scaling when in range
 		if space <= 150 and space >= 50:
 			var increment = Vector2(0.002, 0.002)
 			child.scale = Vector2(0.3, 0.3) + (150 - space) * increment
+		#show play button when in range
+		if space <= 50 and space >= 0:
 			$btn_play.visible = true
-		else:
-			$btn_play.visible = false
+			
 	
 	#moving items while mouse moves
 	if swipe_start != null:

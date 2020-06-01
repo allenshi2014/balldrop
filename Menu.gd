@@ -4,11 +4,11 @@ func _process(_delta):
 	
 	$earth.rotation_degrees += 0.05
 	var earth_degree = $earth.get_rotation_degrees()
-	if  earth_degree > 93 and earth_degree < 94:
+	if fmod(earth_degree, 50) >= 0 and fmod(earth_degree, 50) < 1:
 		$comet.set_emitting(true)
 	else:
 		$comet.set_emitting(false)
-		
+	
 
 func _on_btn_new_pressed():
 	get_tree().change_scene("res://level/stage1/stage1_1.tscn")

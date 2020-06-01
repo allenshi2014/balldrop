@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/earth.png-ba9eb51f3a8e2b6f901d0fd114288e2b.stex"
+path="res://.import/bg_menu.jpg-e25d7b1c0c9b8108e9db5af30aa81186.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/bg/earth.png"
-dest_files=[ "res://.import/earth.png-ba9eb51f3a8e2b6f901d0fd114288e2b.stex" ]
+source_file="res://image/bg/bg_menu.jpg"
+dest_files=[ "res://.import/bg_menu.jpg-e25d7b1c0c9b8108e9db5af30aa81186.stex" ]
 
 [params]
 
