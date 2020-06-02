@@ -15,6 +15,13 @@ func _ready():
 	
 func _process(delta):
 
+	#moving items while mouse moves
+	if swipe_start != null:
+		var swipe_now = $cam.get_global_mouse_position()
+		var distance = swipe_now.x - swipe_start.x
+		$sprites.position.x += distance / 50
+	
+	
 	#increase/decrease items while moving
 	$btn_play.visible = false
 	for child in $sprites.get_children():
@@ -27,14 +34,8 @@ func _process(delta):
 		#show play button when in range
 		if space <= 50 and space >= 0:
 			$btn_play.visible = true
-			
-	
-	#moving items while mouse moves
-	if swipe_start != null:
-		var swipe_now = $cam.get_global_mouse_position()
-		var distance = swipe_now.x - swipe_start.x
-		$sprites.position.x += distance / 50
-	
+
+
 	#sliding after swipe with gradual increment
 	if swipe_left_released and slide_distance <= 200 and slide_increment > 0 and swipe_start == null:
 		$sprites.position.x -= slide_increment
