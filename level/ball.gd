@@ -8,8 +8,10 @@ func _ready():
 	#set image for ball
 	var ball_texture1 = preload("res://image/ball/ball1.png")
 	var ball_texture2 = preload("res://image/ball/ball2.png")
+	var ball_texture3 = preload("res://image/ball/ball3.png")
+	var ball_texture4 = preload("res://image/ball/ball4.png")
 
-	$sprite.set_texture(ball_texture2)
+	$sprite.set_texture(ball_texture4)
 	
 	prevpos = position
 	initalpos = position
@@ -17,6 +19,8 @@ func _ready():
 
 func _physics_process(delta):
 	#yield(get_tree().create_timer(2), "timeout")
+	rotation -= 0.1
+	
 	if position == initalpos:
 		reset_ball()
 		

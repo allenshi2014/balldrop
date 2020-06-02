@@ -8,7 +8,6 @@
 [ext_resource path="res://level/ball.tscn" type="PackedScene" id=6]
 [ext_resource path="res://level/gate.tscn" type="PackedScene" id=7]
 
-
 [sub_resource type="Environment" id=1]
 background_mode = 4
 glow_enabled = true

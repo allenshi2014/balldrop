@@ -53,8 +53,8 @@ rotation = 1.5708
 texture = ExtResource( 5 )
 
 [node name="light" type="Light2D" parent="earth"]
-position = Vector2( -3000, -5000 )
-scale = Vector2( 3.33333, 3.33333 )
+position = Vector2( -952.533, -1595.6 )
+scale = Vector2( 0.957047, 1.25294 )
 texture = ExtResource( 6 )
 texture_scale = 3.0
 energy = 3.0

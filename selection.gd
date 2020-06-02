@@ -29,19 +29,19 @@ func _process(delta):
 		var space = abs(child.global_position.x - 650)
 		#scaling when in range
 		if space <= 150 and space >= 50:
-			var increment = Vector2(0.002, 0.002)
-			child.scale = Vector2(0.3, 0.3) + (150 - space) * increment
+			var increment = Vector2(0.005, 0.005)
+			child.scale = Vector2(1, 1) + (150 - space) * increment
 		#show play button when in range
 		if space <= 50 and space >= 0:
 			$btn_play.visible = true
 
 
 	#sliding after swipe with gradual increment
-	if swipe_left_released and slide_distance <= 200 and slide_increment > 0 and swipe_start == null:
+	if swipe_left_released and slide_distance <= 150 and slide_increment > 0 and swipe_start == null:
 		$sprites.position.x -= slide_increment
 		slide_distance += slide_increment
 		slide_increment -= 0.1
-	elif swipe_right_released and slide_distance <= 200 and slide_increment > 0 and swipe_start == null:
+	elif swipe_right_released and slide_distance <= 150 and slide_increment > 0 and swipe_start == null:
 		$sprites.position.x += slide_increment
 		slide_distance += slide_increment
 		slide_increment -= 0.1
