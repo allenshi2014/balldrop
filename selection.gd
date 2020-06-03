@@ -34,6 +34,8 @@ func _process(delta):
 		#show play button when in range
 		if space <= 50 and space >= 0:
 			$btn_play.visible = true
+			#pass the selected ball name to ball.gd
+			Global.ball_avator = child.name
 
 
 	#sliding after swipe with gradual increment
@@ -79,3 +81,7 @@ func _calculate_swipe(swipe_end):
 
 func _on_btn_back_pressed():
 	get_tree().change_scene("res://menu.tscn")
+
+
+func _on_btn_play_pressed():
+	get_tree().change_scene("res://level/stage1/stage1_1.tscn")

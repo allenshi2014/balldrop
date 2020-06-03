@@ -10,8 +10,17 @@ func _ready():
 	var ball_texture2 = preload("res://image/ball/ball2.png")
 	var ball_texture3 = preload("res://image/ball/ball3.png")
 	var ball_texture4 = preload("res://image/ball/ball4.png")
-
-	$sprite.set_texture(ball_texture4)
+	
+	if Global.ball_avator == "ball1":
+		$sprite.set_texture(ball_texture1)
+	elif Global.ball_avator == "ball2":
+		$sprite.set_texture(ball_texture2)
+	elif Global.ball_avator == "ball3":
+		$sprite.set_texture(ball_texture3)
+	elif Global.ball_avator == "ball4":
+		$sprite.set_texture(ball_texture4)
+	else:
+		$sprite.set_texture(ball_texture1)
 	
 	prevpos = position
 	initalpos = position

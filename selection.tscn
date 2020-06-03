@@ -82,4 +82,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="btn_back" to="." method="_on_btn_back_pressed"]
-[connection signal="pressed" from="btn_play" to="." method="_on_btn_back_pressed"]
+[connection signal="pressed" from="btn_play" to="." method="_on_btn_play_pressed"]
