@@ -20,7 +20,7 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="OccluderPolygon2D" id=3]
 closed = false
-polygon = PoolVector2Array( -110, -20, 110, -20, 110, 20, -110, 20, -110, -20 )
+polygon = PoolVector2Array( -110, -20, 110, -20, 109.223, 29.7147, -111.372, 29.7147, -110, -20 )
 
 [node name="menu" type="Node2D"]
 script = ExtResource( 3 )
@@ -67,33 +67,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="btn_new" type="Button" parent="control"]
-margin_left = 876.383
-margin_top = 268.472
-margin_right = 1096.38
-margin_bottom = 308.472
-custom_fonts/font = SubResource( 2 )
-text = "New Game"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="btn_new_mask" type="LightOccluder2D" parent="control/btn_new"]
-position = Vector2( 109.932, 20.5501 )
-occluder = SubResource( 3 )
-
-[node name="btn_setting" type="Button" parent="control"]
+[node name="btn_play" type="Button" parent="control"]
 margin_left = 876.383
 margin_top = 351.082
 margin_right = 1096.38
-margin_bottom = 391.082
+margin_bottom = 401.082
 custom_fonts/font = SubResource( 2 )
-text = "Setting"
+text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="btn_setting_mask" type="LightOccluder2D" parent="control/btn_setting"]
+[node name="btn_play_mask" type="LightOccluder2D" parent="control/btn_play"]
 position = Vector2( 111.088, 20.6964 )
 occluder = SubResource( 3 )
 
@@ -101,7 +86,7 @@ occluder = SubResource( 3 )
 margin_left = 876.383
 margin_top = 431.02
 margin_right = 1096.38
-margin_bottom = 471.02
+margin_bottom = 481.02
 custom_fonts/font = SubResource( 2 )
 text = "Option"
 __meta__ = {
@@ -115,6 +100,5 @@ occluder = SubResource( 3 )
 [node name="music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
-[connection signal="pressed" from="control/btn_new" to="." method="_on_btn_new_pressed"]
-[connection signal="pressed" from="control/btn_setting" to="." method="_on_btn_setting_pressed"]
+[connection signal="pressed" from="control/btn_play" to="." method="_on_btn_play_pressed"]
 [connection signal="pressed" from="control/btn_option" to="." method="_on_btn_option_pressed"]

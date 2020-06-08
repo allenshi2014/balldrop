@@ -21,25 +21,25 @@ rotation = 3.14159
 texture = ExtResource( 8 )
 
 [node name="cam" type="Camera2D" parent="."]
-position = Vector2( 650, 350 )
+position = Vector2( 772.318, 350 )
 
 [node name="sprites" type="Node2D" parent="."]
-position = Vector2( 652.432, 350 )
+position = Vector2( 774.75, 350 )
 
 [node name="ball1" type="Sprite" parent="sprites"]
-position = Vector2( -328.184, 132.166 )
+position = Vector2( 4.887, 130 )
 texture = ExtResource( 9 )
 
 [node name="ball2" type="Sprite" parent="sprites"]
-position = Vector2( -76.4911, 134.518 )
+position = Vector2( 204.83, 130 )
 texture = ExtResource( 2 )
 
 [node name="ball3" type="Sprite" parent="sprites"]
-position = Vector2( 149.327, 132.166 )
+position = Vector2( 390.659, 130 )
 texture = ExtResource( 3 )
 
 [node name="ball4" type="Sprite" parent="sprites"]
-position = Vector2( 335.156, 143.927 )
+position = Vector2( 572.908, 130 )
 texture = ExtResource( 4 )
 
 [node name="label" type="Label" parent="."]
