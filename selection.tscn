@@ -27,19 +27,19 @@ position = Vector2( 772.318, 350 )
 position = Vector2( 774.75, 350 )
 
 [node name="ball1" type="Sprite" parent="sprites"]
-position = Vector2( 4.887, 130 )
+position = Vector2( -117.431, 134.705 )
 texture = ExtResource( 9 )
 
 [node name="ball2" type="Sprite" parent="sprites"]
-position = Vector2( 204.83, 130 )
+position = Vector2( 82.5119, 134.705 )
 texture = ExtResource( 2 )
 
 [node name="ball3" type="Sprite" parent="sprites"]
-position = Vector2( 390.659, 130 )
+position = Vector2( 268.341, 134.705 )
 texture = ExtResource( 3 )
 
 [node name="ball4" type="Sprite" parent="sprites"]
-position = Vector2( 572.908, 130 )
+position = Vector2( 450.59, 134.705 )
 texture = ExtResource( 4 )
 
 [node name="label" type="Label" parent="."]

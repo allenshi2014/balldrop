@@ -3,11 +3,10 @@
 [ext_resource path="res://image/object/rock.png" type="Texture" id=1]
 [ext_resource path="res://level/stage1/rock.gd" type="Script" id=2]
 
-
-
 [node name="rock" type="StaticBody2D" groups=[
 "line",
 ]]
+rotation = 0.523599
 script = ExtResource( 2 )
 
 [node name="sprite" type="Sprite" parent="."]
