@@ -28,7 +28,14 @@ func _ready():
 
 func _physics_process(delta):
 	#yield(get_tree().create_timer(2), "timeout")
-	rotation -= 0.1
+	#set rotation force
+	if prevpos.x < position.x:
+		rotation += 0.1
+	elif prevpos.x > position.x:
+		rotation -= 0.1
+	else:
+		rotation = 0
+
 	
 	if position == initalpos:
 		reset_ball()
@@ -62,6 +69,8 @@ func _physics_process(delta):
 			if c.collider_name == "gate":
 				get_parent().find_node("gate").scale = Vector2(0.5, 0.5)
 				queue_free()
+				#go to next stage
+				get_tree().change_scene("res://level/stage1/stage1_2.tscn")
 				
 			elif c.collider_name == "rock":
 				#add break effect
@@ -83,6 +92,7 @@ func _physics_process(delta):
 				var restitution = 1
 				vel = (-vel.reflect(norm)).linear_interpolate(vel.slide(norm), 1-restitution)
 				position = coll + norm * 0.1
+				
 			
 				var shockwave = preload("res://level/shockwave.tscn").instance()
 				shockwave.position = position

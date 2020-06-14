@@ -97,15 +97,22 @@ shader_param/gradient = SubResource( 7 )
 size = 19
 font_data = ExtResource( 3 )
 
-[node name="stage1_1" type="WorldEnvironment"]
+[node name="stage1_2" type="WorldEnvironment"]
 environment = SubResource( 1 )
 script = ExtResource( 4 )
 
 [node name="gate" parent="." instance=ExtResource( 7 )]
-position = Vector2( 993.481, 556.524 )
+position = Vector2( 1095, 559 )
+
+[node name="rock3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 651.376, 558.586 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="rock2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 440, 237 )
 
 [node name="rock1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 650.466, 548.985 )
+position = Vector2( 986.12, 401.494 )
 rotation = 0.785398
 
 [node name="ball_container" type="Node" parent="." groups=[

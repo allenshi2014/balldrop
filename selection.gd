@@ -27,6 +27,8 @@ func _process(delta):
 			$btn_play.visible = true
 			#pass the selected ball name to ball.gd
 			Global.ball_avator = child.name
+			#reset the count
+			Global.line_count = 0
 
 	#moving items while mouse moves
 	if swipe_start != null:
