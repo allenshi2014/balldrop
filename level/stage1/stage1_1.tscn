@@ -110,6 +110,7 @@ scale = Vector2( 0.5, 0.5 )
 
 [node name="rock2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 440, 237 )
+rotation = 0.785398
 
 [node name="ball_container" type="Node" parent="." groups=[
 "ball_container",

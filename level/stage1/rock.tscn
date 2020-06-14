@@ -6,7 +6,6 @@
 [node name="rock" type="StaticBody2D" groups=[
 "line",
 ]]
-rotation = 0.523599
 script = ExtResource( 2 )
 
 [node name="sprite" type="Sprite" parent="."]

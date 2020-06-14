@@ -42,24 +42,6 @@ texture = ExtResource( 3 )
 position = Vector2( 450.59, 134.705 )
 texture = ExtResource( 4 )
 
-[node name="label" type="Label" parent="."]
-margin_left = 459.49
-margin_top = 80.0
-margin_right = 499.49
-margin_bottom = 94.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="label2" type="Label" parent="."]
-margin_left = 459.0
-margin_top = 134.0
-margin_right = 1238.0
-margin_bottom = 221.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="btn_back" type="Button" parent="."]
 margin_left = 1123.34
 margin_top = 32.2685

@@ -10,8 +10,9 @@ var slide_distance = 0
 var slide_increment = 10
 var space = 0
 	
+	
 func _process(delta):
-
+	
 	#increase/decrease items while moving
 	$btn_play.visible = false
 	for child in $sprites.get_children():
