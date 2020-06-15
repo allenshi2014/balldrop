@@ -19,7 +19,7 @@ func _process(_delta):
 	last_mouse_pos = $cam.get_global_mouse_position()
 	p2 = last_mouse_pos
 	
-	if current_line != null and p1.distance_to(p2) <= line_length and p1.distance_to(p2) >= 10:
+	if current_line != null and p1.distance_to(p2) <= line_length and p1.distance_to(p2) >= 20:
 		
 		current_line_shadow.set_ends_shadow(p1, p2)
 		current_line.set_ends(p1, p2)
@@ -54,7 +54,7 @@ func _input(event):
 			
 			add_child(current_line)
 
-			if  p1.distance_to(p2) >= 10:
+			if  p1.distance_to(p2) >= 20:
 				#print(String(line_length))
 				Global.line_count += 1
 
@@ -63,9 +63,6 @@ func _input(event):
 		else:
 			current_line = null
 
-func _on_ball_stage_close():
-	$layer_close/stage_cover1.scale = Vector2(100, 40)
-	$layer_close/stage_cover2.scale = Vector2(100, 40)
 	
 func _on_btn_back_pressed():
 	get_tree().change_scene("res://menu.tscn")
@@ -73,3 +70,7 @@ func _on_btn_back_pressed():
 
 func _on_btn_next_pressed():
 	get_tree().change_scene("res://level/stage1/stage1_2.tscn")
+
+
+func _on_btn_reset_pressed():
+	get_tree().change_scene("res://level/stage1/stage1_1.tscn")

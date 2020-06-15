@@ -28,12 +28,16 @@ font_data = ExtResource( 3 )
 environment = SubResource( 1 )
 script = ExtResource( 4 )
 
+[node name="ball" parent="." instance=ExtResource( 6 )]
+position = Vector2( 290.068, 186.807 )
+
 [node name="gate" parent="." instance=ExtResource( 7 )]
-position = Vector2( 993.481, 556.524 )
+position = Vector2( 965.254, 525.945 )
 
 [node name="rock1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 650.466, 548.985 )
+position = Vector2( 605.773, 523.11 )
 rotation = 0.785398
+scale = Vector2( 0.8, 0.8 )
 
 [node name="ball_container" type="Node" parent="." groups=[
 "ball_container",
@@ -60,9 +64,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="mars" parent="." instance=ExtResource( 6 )]
-position = Vector2( 116, 128 )
-
 [node name="btn_back" type="Button" parent="."]
 margin_left = 1179.0
 margin_top = 25.0
@@ -76,11 +77,23 @@ __meta__ = {
 
 [node name="layer_close" type="Node2D" parent="."]
 
+[node name="btn_reset" type="Button" parent="layer_close"]
+visible = false
+margin_left = 518.26
+margin_top = 326.179
+margin_right = 607.26
+margin_bottom = 399.179
+custom_fonts/font = SubResource( 6 )
+text = "Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="btn_next" type="Button" parent="layer_close"]
 visible = false
-margin_left = 600.59
+margin_left = 668.806
 margin_top = 326.179
-margin_right = 681.59
+margin_right = 749.806
 margin_bottom = 399.179
 custom_fonts/font = SubResource( 6 )
 text = "Next"
@@ -100,4 +113,5 @@ position = Vector2( 640, 787 )
 scale = Vector2( 100, 1 )
 texture = ExtResource( 1 )
 [connection signal="pressed" from="btn_back" to="." method="_on_btn_back_pressed"]
+[connection signal="pressed" from="layer_close/btn_reset" to="." method="_on_btn_reset_pressed"]
 [connection signal="pressed" from="layer_close/btn_next" to="." method="_on_btn_next_pressed"]

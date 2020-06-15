@@ -64,7 +64,7 @@ func set_ends_shadow(p1, p2):
 	# (using a sprite so we get anti aliasing)
 	$spr.position = (a + b) / 2
 	$spr.rotation = $shape.rotation + PI / 2
-	$spr.scale = Vector2(a.distance_to(b), 1.5)
+	$spr.scale = Vector2(a.distance_to(b), 2)
 	#grey color for shadow line
 	$spr.modulate = Color(0.75, 0.75, 0.75, 1)
 	#set no bounce 
@@ -88,7 +88,7 @@ func set_ends(p1, p2):
 	# (using a sprite so we get anti aliasing)
 	$spr.position = (a + b) / 2
 	$spr.rotation = $shape.rotation + PI / 2
-	$spr.scale = Vector2(a.distance_to(b), 1.5)
+	$spr.scale = Vector2(a.distance_to(b), 2)
 	#stop timer2 when drawing line
 	timer2.stop()
 
