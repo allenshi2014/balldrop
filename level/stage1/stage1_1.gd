@@ -63,6 +63,13 @@ func _input(event):
 		else:
 			current_line = null
 
-
+func _on_ball_stage_close():
+	$layer_close/stage_cover1.scale = Vector2(100, 40)
+	$layer_close/stage_cover2.scale = Vector2(100, 40)
+	
 func _on_btn_back_pressed():
 	get_tree().change_scene("res://menu.tscn")
+
+
+func _on_btn_next_pressed():
+	get_tree().change_scene("res://level/stage1/stage1_2.tscn")

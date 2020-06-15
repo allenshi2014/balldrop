@@ -1,6 +1,6 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://fonts/WireOne.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://level/stage1/glow.png" type="Texture" id=1]
 [ext_resource path="res://image/bg/bg_menu.jpg" type="Texture" id=2]
 [ext_resource path="res://font/GT.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://level/stage1/stage1_1.gd" type="Script" id=4]
@@ -21,99 +21,33 @@ glow_blend_mode = 1
 glow_bicubic_upscale = true
 
 [sub_resource type="DynamicFont" id=2]
-size = 160
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 60
-font_data = ExtResource( 1 )
-
-[sub_resource type="Animation" id=4]
-resource_name = "fade_in"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("vsplit/logo:modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 1.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("vsplit/controls:modulate")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2, 3.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("vsplit:modulate")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 8.2, 10 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-
-[sub_resource type="Shader" id=5]
-code = "shader_type canvas_item;
-
-uniform sampler2D gradient;
-
-float rand(vec2 co){
-    return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
-}
-
-void fragment()
-{
-	//Adding a little noise here to reduce the banding
-	COLOR = texture(gradient, vec2(UV.y + (rand(UV)-0.5) * 0.04, 0));
-}"
-
-[sub_resource type="Gradient" id=6]
-colors = PoolColorArray( 0.371094, 0.371094, 0.371094, 1, 0.117188, 0.117188, 0.117188, 1 )
-
-[sub_resource type="GradientTexture" id=7]
-gradient = SubResource( 6 )
-
-[sub_resource type="ShaderMaterial" id=8]
-shader = SubResource( 5 )
-shader_param/gradient = SubResource( 7 )
-
-[sub_resource type="DynamicFont" id=9]
 size = 19
 font_data = ExtResource( 3 )
 
-[node name="stage1_2" type="WorldEnvironment"]
+[node name="stage1_1" type="WorldEnvironment"]
 environment = SubResource( 1 )
 script = ExtResource( 4 )
 
 [node name="gate" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1095, 559 )
+position = Vector2( 993.481, 556.524 )
 
-[node name="rock3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 651.376, 558.586 )
+[node name="rock1" parent="." instance=ExtResource( 5 )]
+position = Vector2( 121.962, 584.615 )
+rotation = 0.523599
 scale = Vector2( 0.5, 0.5 )
 
 [node name="rock2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 440, 237 )
-
-[node name="rock1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 986.12, 401.494 )
+position = Vector2( 430.751, 255.042 )
 rotation = 0.785398
+
+[node name="rock3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 852.366, 364.9 )
+rotation = 1.5708
+scale = Vector2( 0.8, 0.8 )
+
+[node name="rock4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 887.996, 590.553 )
+scale = Vector2( 0.3, 0.3 )
 
 [node name="ball_container" type="Node" parent="." groups=[
 "ball_container",
@@ -122,68 +56,12 @@ rotation = 0.785398
 [node name="cam" type="Camera2D" parent="."]
 position = Vector2( 640, 360 )
 
-[node name="center" type="CenterContainer" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="vsplit" type="VSplitContainer" parent="center"]
-margin_left = 640.0
-margin_top = 360.0
-margin_right = 640.0
-margin_bottom = 360.0
-mouse_filter = 2
-dragger_visibility = 2
-
-[node name="logo" type="Label" parent="center/vsplit"]
-modulate = Color( 1, 1, 1, 0 )
-margin_right = 31.0
-margin_bottom = 2.0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "balldrop."
-align = 1
-valign = 1
-
-[node name="controls" type="Label" parent="center/vsplit"]
-modulate = Color( 1, 1, 1, 0 )
-margin_top = 2.0
-margin_right = 31.0
-margin_bottom = 14.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "
-draw lines: left mouse button
-erase lines: right mouse button"
-align = 1
-valign = 1
-
-[node name="anim" type="AnimationPlayer" parent="center"]
-autoplay = "fade_in"
-anims/fade_in = SubResource( 4 )
-
 [node name="layer_bg" type="CanvasLayer" parent="."]
 layer = -1
 
 [node name="bg" type="Sprite" parent="layer_bg"]
 position = Vector2( 640.199, 360 )
 texture = ExtResource( 2 )
-
-[node name="gradient" type="ColorRect" parent="layer_bg"]
-visible = false
-material = SubResource( 8 )
-anchor_left = -0.00234375
-anchor_right = 0.997656
-anchor_bottom = 1.0
-mouse_filter = 2
-color = Color( 0.184314, 0.0901961, 0.0901961, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="line_count_txt" type="Label" parent="."]
 margin_left = 1108.0
@@ -204,9 +82,36 @@ margin_left = 1179.0
 margin_top = 25.0
 margin_right = 1256.0
 margin_bottom = 98.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 2 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="layer_close" type="Node2D" parent="."]
+
+[node name="btn_next" type="Button" parent="layer_close"]
+visible = false
+margin_left = 600.59
+margin_top = 326.179
+margin_right = 681.59
+margin_bottom = 399.179
+custom_fonts/font = SubResource( 2 )
+text = "Next"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stage_cover1" type="Sprite" parent="layer_close"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 640, -70.0401 )
+scale = Vector2( 100, 1 )
+texture = ExtResource( 1 )
+
+[node name="stage_cover2" type="Sprite" parent="layer_close"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 640, 787 )
+scale = Vector2( 100, 1 )
+texture = ExtResource( 1 )
 [connection signal="pressed" from="btn_back" to="." method="_on_btn_back_pressed"]
+[connection signal="pressed" from="layer_close/btn_next" to="." method="_on_btn_next_pressed"]

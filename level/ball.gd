@@ -4,7 +4,10 @@ var vel = Vector2()
 var prevpos = Vector2()
 var initalpos = Vector2() #get the inital postion to reset mars back after lost
 
+signal stage_close
+
 func _ready():
+	connect("stage_close", get_tree().get_root().find_node("stage1_1"), "_on_ball_stage_close")
 	#set image for ball
 	var ball_texture1 = preload("res://image/ball/ball1.png")
 	var ball_texture2 = preload("res://image/ball/ball2.png")
@@ -70,7 +73,14 @@ func _physics_process(delta):
 				get_parent().find_node("gate").scale = Vector2(0.5, 0.5)
 				queue_free()
 				#go to next stage
-				get_tree().change_scene("res://level/stage1/stage1_2.tscn")
+				emit_signal("stage_close")
+				var cover1 = get_parent().find_node("stage_cover1")
+				var cover2 = get_parent().find_node("stage_cover2")
+				var btn_next = get_parent().find_node("btn_next")
+				cover1.scale = Vector2(100, 45)
+				cover2.scale = Vector2(100, 45)
+				btn_next.visible = true
+			
 				
 			elif c.collider_name == "rock":
 				#add break effect
