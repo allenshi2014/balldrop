@@ -75,10 +75,12 @@ func _physics_process(delta):
 				var cover2 = get_parent().find_node("stage_cover2")
 				var btn_next = get_parent().find_node("btn_next")
 				var btn_reset = get_parent().find_node("btn_reset")
+				var comet = get_parent().find_node("comet")
 				cover1.scale = Vector2(100, 45)
 				cover2.scale = Vector2(100, 45)
 				btn_next.visible = true
 				btn_reset.visible = true
+				comet.emitting = true
 			
 				
 			elif c.collider_name == "rock":

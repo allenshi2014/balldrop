@@ -98,6 +98,7 @@ margin_right = 603.486
 margin_bottom = 399.179
 custom_fonts/font = SubResource( 2 )
 text = "Reset"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -110,6 +111,7 @@ margin_right = 752.849
 margin_bottom = 399.179
 custom_fonts/font = SubResource( 2 )
 text = "Next"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
