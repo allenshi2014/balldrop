@@ -4,7 +4,7 @@
 [ext_resource path="res://image/bg/bg_menu.jpg" type="Texture" id=2]
 [ext_resource path="res://font/GT.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://level/stage1/stage1_1.gd" type="Script" id=4]
-[ext_resource path="res://level/stage1/rock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://level/star.tscn" type="PackedScene" id=5]
 [ext_resource path="res://level/ball.tscn" type="PackedScene" id=6]
 [ext_resource path="res://level/gate.tscn" type="PackedScene" id=7]
 [ext_resource path="res://tex/glow.png" type="Texture" id=8]
@@ -40,11 +40,6 @@ position = Vector2( 290.068, 186.807 )
 
 [node name="gate" parent="." instance=ExtResource( 7 )]
 position = Vector2( 965.254, 525.945 )
-
-[node name="rock1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 605.773, 523.11 )
-rotation = 0.785398
-scale = Vector2( 0.8, 0.8 )
 
 [node name="ball_container" type="Node" parent="." groups=[
 "ball_container",
@@ -82,6 +77,17 @@ text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="layer_star" type="Node2D" parent="."]
+
+[node name="star1" parent="layer_star" instance=ExtResource( 5 )]
+position = Vector2( 468.822, 450.04 )
+
+[node name="star2" parent="layer_star" instance=ExtResource( 5 )]
+position = Vector2( 618.064, 389.537 )
+
+[node name="star3" parent="layer_star" instance=ExtResource( 5 )]
+position = Vector2( 769.322, 452.057 )
 
 [node name="layer_close" type="Node2D" parent="."]
 

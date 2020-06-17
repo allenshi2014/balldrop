@@ -60,7 +60,7 @@ func _physics_process(delta):
 		var coll = null
 		if c.collider_name == "line":
 			coll = Geometry.segment_intersects_segment_2d(prevpos, position, p1, p2)
-		elif c.collider_name == "rock" or c.collider_name == "gate":
+		elif c.collider_name == "rock" or c.collider_name == "star" or c.collider_name == "gate":
 			coll = Geometry.is_point_in_polygon(position, c.collider_area)
 			if coll == false:
 				coll = null
@@ -71,6 +71,9 @@ func _physics_process(delta):
 				get_parent().find_node("gate").scale = Vector2(0.5, 0.5)
 				queue_free()
 				#go to next stage
+				for child in colliders:
+					child.queue_free()
+					
 				var cover1 = get_parent().find_node("stage_cover1")
 				var cover2 = get_parent().find_node("stage_cover2")
 				var btn_next = get_parent().find_node("btn_next")
@@ -95,6 +98,19 @@ func _physics_process(delta):
 				
 				reset_ball()
 				break
+			
+			elif c.collider_name == "star":
+				#add break effect
+				
+				var shockwave = preload("res://level/shockwave.tscn").instance()
+				shockwave.position = position
+				shockwave.scale = Vector2(2, 2)
+				shockwave.modulate = Color(0.5, 0.5, 0, 1)
+				get_parent().add_child(shockwave)
+				#add sound effect
+				AudioPlayer.play_at("laser", position, 1)
+				#queue_free()
+				c.queue_free()
 
 			elif c.collider_name == "line":
 				if vel.dot(norm) > 0:
