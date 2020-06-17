@@ -18,5 +18,4 @@ func _ready():
 		collider_area.set(i, p_point)
 
 func _process(delta):
-	#rotation += 0.01
-	pass
+	rotation += 0.01
